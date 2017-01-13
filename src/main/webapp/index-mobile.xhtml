@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pm="http://primefaces.org/mobile">
+<f:view renderKitId="PRIMEFACES_MOBILE"/>
+<h:head>
+</h:head>
+<h:body>
+  <pm:page id="main">
+    <pm:header fixed="true"
+               title="Main Page"
+               style="background-color: black;
+                   color : white;
+                   height : 100px;"/>
+    <pm:content>
+      Main Page Content
+      <p:accordionPanel>
+        <p:tab title="Godfather Part I">
+          <h:outputText value="The story begins as Don Vito Corleon..."/>
+        </p:tab>
+        <p:tab title="Godfather Part II">
+          <h:outputText value="Francis Ford Coppola's ..."/>
+        </p:tab>
+        <p:tab title="Godfather Part III">
+          <h:outputText value="After a break of more than 15 years..."/>
+        </p:tab>
+      </p:accordionPanel>
+    </pm:content>
+    <pm:footer fixed="true">
+      <p:button outcome="pm:second?transition=flip" value="second" icon="ui-icon-check"/>
+    </pm:footer>
+  </pm:page>
+  <pm:page id="second">
+    <pm:header title="Second Page"/>
+    <pm:content>
+      Second Page Content
+      <p:calendar value="#{calendarView.date1}" pattern="MM/dd/yyyy"/>
+    </pm:content>
+    <pm:footer>
+      <p:button outcome="pm:third" value="third"/>
+    </pm:footer>
+  </pm:page>
+  <pm:page id="third">
+    <pm:header title="Third Page"/>
+    <pm:content>
+      Third Page Content
+      <p:commandButton value="Show" onclick="PF('dlg1').show();" type="button"/>
+      <p:dialog header="Header" widgetVar="dlg1" showEffect="pop">
+        <h:outputText value="What we do in life, echoes in eternity!"/>
+      </p:dialog>
+    </pm:content>
+    <pm:footer>
+      <p:button outcome="pm:main" value="main"/>
+    </pm:footer>
+  </pm:page>
+</h:body>
+</html>
